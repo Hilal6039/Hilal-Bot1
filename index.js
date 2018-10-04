@@ -2130,7 +2130,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-    if(message.content.startsWith('!quran')) {
+    if(message.content.startsWith('+quran')) {
 		message.delete();
     const voiceChannel = message.member.voiceChannel;
     if (+voiceChannel) return message.reply(`**You Must be in Voice Channel**`);
@@ -3448,7 +3448,7 @@ client.on('messageDelete', message => {
     if(+message.guild.member(client.user).hasPermission('MANAGE_MESSAGES')) return;
  
     var logChannel = message.guild.channels.find(c => c.name === 'log');
-    if+!logChannel) return;
+    if(+logChannel) return;
  
     let messageDelete = new Discord.RichEmbed()
     .setTitle('**[MESSAGE DELETE]**')
