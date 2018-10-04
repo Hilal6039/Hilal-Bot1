@@ -35,7 +35,7 @@ client.on('ready', () => {
     console.log(`Users! [ " ${client.users.size} " ]`);
     console.log('')
     console.log('╚[════════════════════════════════════]╝')
-          client.user.setActivity("By: YodaBrro#4557",{type: 'STREAMING'});     //Heeeeeemo    
+          client.user.setActivity("By: !Hilal.#1310",{type: 'STREAMING'});     //Heeeeeemo    
 });
 
 client.on('message', async message => {
