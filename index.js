@@ -805,7 +805,7 @@ if (message.content.startsWith("!cv")) {
   let args = message.content.split(" ").slice(1);
 
   if (command == "ban") {
-               if(=message.channel.guild) return message.reply('** This command only for servers**');
+               if(message.channel.guild) return message.reply('** This command only for servers**');
          
   if(+message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
   if(+message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
