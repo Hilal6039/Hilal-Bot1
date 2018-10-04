@@ -87,5 +87,21 @@ gg.send({embed : new Discord.RichEmbed()
  }
 })
 
+client.on('message' , message => {
+if (message.content === '$help') {
+ if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions "); 
+   let embed = new Discord.RichEmbed()
+
+      .setThumbnail(message.author.avatarURL)    
+      .addField("**۩ஜ▬▬▬▬▬▬✦ الأوامر العامة ✦▬▬▬▬▬▬ஜ۩**","** **")
+      .addField("**$members**","**لأظهار حالات الأعضاء**")
+      .addField("**$ping**","**لاظهار سرعة اتصال البوت**")
+      .addField("**$invite**","**لارسال رابط السيرفر على الخاص**")
+       .addField("**$sug**","**لعمل اقتراح قد يساعدنا في تطوير السيرفر**")
+     .addField("**$avatar**","**لاظهار صورتك الشخصية او صورة اي شخص بوضع منشن له**")
+.setColor('#e9ab26')
+  message.author.sendEmbed(embed);
+    }
+});
 	    
 client.login(process.env.BOT_TOKEN)
