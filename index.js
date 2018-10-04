@@ -162,7 +162,6 @@ By :<@280749272498962432> | __**شكرا لكم لاستعمال البوت**__
 `);
 
 }
-});
 
  Client.on('message', async FARES => {
 if(FARES.author.bot) return;
