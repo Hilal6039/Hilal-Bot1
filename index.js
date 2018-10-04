@@ -3711,7 +3711,7 @@ client.on('guildBanAdd', (guild, user) => {
     if(+guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
  
     var logChannel = guild.channels.find(c => c.name === 'log');
-    if(!logChannel) return;
+    if(+logChannel) return;
  
     guild.fetchAuditLogs().then(logs => {
         var userID = logs.entries.first().executor.id;
@@ -3735,7 +3735,7 @@ client.on('guildBanRemove', (guild, user) => {
     if(+guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
  
     var logChannel = guild.channels.find(c => c.name === 'log');
-    if(!logChannel) return;
+    if(+logChannel) return;
  
     guild.fetchAuditLogs().then(logs => {
         var userID = logs.entries.first().executor.id;
@@ -3840,7 +3840,7 @@ client.on('guildMemberUpdate', (oldMember, newMember) => {
         var userAvatar = logs.entries.first().executor.avatarURL;
         var userTag = logs.entries.first().executor.tag;
  
-        if(oldMember.nickname +== newMember.nickname) {
+        if(oldMember.nickname == newMember.nickname) {
             if(oldMember.nickname === null) {
                 var oldNM = '\`\`اسمه الاصلي\`\`';
             }else {
