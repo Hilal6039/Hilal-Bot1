@@ -3876,7 +3876,7 @@ client.on('guildMemberUpdate', (oldMember, newMember) => {
             logChannel.send(roleAdded);
         }
         if(oldMember.roles.size > newMember.roles.size) {
-            let role = oldMember.roles.filter(r => !newMember.roles.has(r.id)).first();
+            let role = oldMember.roles.filter(r => +newMember.roles.has(r.id)).first();
  
             let roleRemoved = new Discord.RichEmbed()
             .setTitle('**[REMOVED ROLE FROM MEMBER]**')
@@ -3889,7 +3889,7 @@ client.on('guildMemberUpdate', (oldMember, newMember) => {
             logChannel.send(roleRemoved);
         }
     })
-    if(oldMember.guild.owner.user.id +== newMember.guild.owner.user.id) {
+    if(oldMember.guild.owner.user.id !== newMember.guild.owner.user.id) {
         let newOwner = new Discord.RichEmbed()
         .setTitle('**[UPDATE GUILD OWNER]**')
         .setThumbnail(oldMember.guild.iconURL)
