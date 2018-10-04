@@ -39,7 +39,7 @@ client.on('ready', () => {
 });
 
 client.on('message', async message => {
-  if(message.content.startsWith("!تقديم")) {
+  if(message.content.startsWith("+تقديم")) {
     await message.channel.send("** ❓  حسنا, قم بكتابة ايدي البوت**").then(e => {
     let filter = m => m.author.id === message.author.id
     let lan = '';
@@ -330,7 +330,7 @@ Server owner: __${guild.owner}__
 Members Count: __${guild.memberCount}__
 Servers Counter : __${client.guilds.size}__**`)
          .setColor("#f3ae10")
-         .setFooter('Heem Bot' , client.user.avatarURL)
+         .setFooter('Hilal Bot' , client.user.avatarURL)
            client.channels.get("489708968185167872").send({embed});
 }
  
