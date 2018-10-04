@@ -3575,7 +3575,7 @@ client.on('roleUpdate', (oldRole, newRole) => {
  
             logChannel.send(roleUpdateColor);
         }
-        if(oldRole.permissions +== newRole.permissions) {
+        if(oldRole.permissions == newRole.permissions) {
             let roleUpdate = new Discord.RichEmbed()
             .setTitle('**[UPDATE ROLE PERMISSIONS]**')
             .setThumbnail(userAvatar)
