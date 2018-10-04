@@ -126,13 +126,6 @@ if (message.content === '$help') {
 }
 });
 
- Rocket.on('message', message => {//help msg
-  if (message.author.bot) return;
-   if (message.content === prefix + "help") {
-      message.react("☑")            
-
-   
-
 
       message.author.sendMessage(`**شكرا لك لاستعمال البوت**
 
