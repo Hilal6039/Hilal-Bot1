@@ -962,7 +962,7 @@ client.on('message', message => {
 
  client.on('message', message => {
    if (message.content === "!rooms") {
-                     if (=message.guild) return;
+                     if (+message.guild) return;
 
        var channels = message.guild.channels.map(channels => `${channels.name}, `).join(' ')
        const embed = new Discord.RichEmbed()
@@ -975,7 +975,7 @@ client.on('message', message => {
    }
 });
 
- var prefix = "!";
+ var prefix = "+";
  const HeRo = new Discord.Client();
  client.on('message', message => {
      if (message.content === prefix + "date") {
