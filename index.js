@@ -252,9 +252,6 @@ client.on('message' , async (message) => {
     }
 });
 
- const arraySort = require('array-sort'),
-table = require('table');
-
 client.on('message' , async (message) => {
 
     if(message.content.startsWith("$topinvite")) {
