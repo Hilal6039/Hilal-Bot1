@@ -3585,6 +3585,22 @@ message.channel.send(new discord.RichEmbed()
 }
 })
 
+client.on('message' , async message => {
+  if(message.author.bot) return;
+  var prefix = "+";     
+  if (message.content.startsWith(prefix + "voice")) {
+  var guild = message.guild
+if(message.channel.type == 'dm') return;
+const embed = new Discord.RichEmbed() 
+    .setColor("RANDOM")
+    .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+    .setAuthor("Voice Online", "صوره بوتك هنا")
+        .setFooter(` العدد : ${guild.members.filter(member => member.voiceChannel).size}`)
+    .setDescription(`\n${guild.members.filter(member => member.voiceChannel).map(m => m.user.tag).join('\n')}`);
+  message.channel.sendEmbed(embed);
+}// لو تبي تغير الوقت اللي تنرسل فيه الرساله غير رقم 30 الى عدد الدقائق اللي تبيهه ..
+});
+
 
 
 
