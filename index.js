@@ -1,36 +1,19 @@
 
 const Discord = require('discord.js');
-
 const Util = require('discord.js');
-
 const Canvas = require("canvas")
-
 const YouTube = require('simple-youtube-api');
-
 const ytdl = require('ytdl-core');
-
 const figlet = require('figlet');
-
 const request = require('request');
-
 const moment = require('moment');
-
 const r1 = require('snekfetch'); 
-
 const fs = require('fs');
-
 const getYoutubeID = require('get-youtube-id');
-
 const fetchVideoInfo = require('youtube-info');
-
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4"; //NourEldien Kfo
-
 let ar = JSON.parse(fs.readFileSync(`AutoRole.json`, `utf8`))
-
-
-
 const GOOGLE_API_KEY = 'AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8';
-
 const youtube = new YouTube(GOOGLE_API_KEY);
 
 const PREFIX = '!';
@@ -176,11 +159,8 @@ ms.delete()
         },2000);
 
 var gg = message.guild.channels.find('name', 'التقديمات')
-
 if(!gg) return;
-
 if(gg) {
-
 gg.send({embed : new Discord.RichEmbed()
 
 .setDescription(`**  الأيدي :question:  : \n ${lan}\nالمميزات :link: :\n ${md} \nعدد السيرفرات والمستخدمين :question: :\n ${br}  \nتم التقديم بواسطة  : <@${message.author.id}> **`)  
