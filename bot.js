@@ -3768,7 +3768,310 @@ client.on('message',message =>{
     }
   });
 
+client.on('message', message => {
 
+
+
+    if (message.content.startsWith(prefix + 'hack')) {
+
+
+
+        if(!message.author.id === '') return;
+
+      if (message.author.bot) return
+
+           message.delete();
+
+             let args = message.content.split(' ').slice(1);
+
+ 
+
+                   let virusname = args.join(' ');
+
+                 if (virusname < 1) {
+
+                     return message.channel.send("```اكتب اسم الشخص الي تبي يتهكر```");
+
+                 }
+
+                 message.channel.send({embed: new Discord.RichEmbed().setTitle('Loading ' + virusname + "...").setColor(0xFF0000)}).then(function(m) {
+
+             setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓ ] 1%').setColor(0xFF0000)})
+
+             }, 1000)
+
+             setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓ ] 2%').setColor(0xFF0000)})
+
+             }, 2000)
+
+               setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓ ] 3%').setColor(0xFF0000)})
+
+             }, 3000)
+
+             setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓ ] 4%').setColor(0xFF0000)})
+
+             }, 4000)
+
+               setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓ ] 28%').setColor(0xFF0000)})
+
+             }, 5000)
+
+               setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 35%').setColor(0xFF0000)})
+
+             }, 6000)
+
+               setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 78%').setColor(0xFF0000)})
+
+             }, 7000)
+
+               setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 80%').setColor(0xFF0000)})
+
+             }, 8000)
+
+               setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 86%').setColor(0xFF0000)})
+
+             }, 9000)
+
+                setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 89%').setColor(0xFF0000)})
+
+             }, 10000)
+
+                setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 90%').setColor(0xFF0000)})
+
+             }, 11000)
+
+                setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 95%').setColor(0xFF0000)})
+
+             }, 12000)
+
+                setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 96%').setColor(0xFF0000)})
+
+             }, 13000)
+
+                setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 97%').setColor(0xFF0000)})
+
+             }, 14000)
+
+                setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 98%').setColor(0xFF0000)})
+
+             }, 15000)
+
+                setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 99%').setColor(0xFF0000)})
+
+             }, 16000)
+
+                setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%').setColor(0xFF0000)})
+
+             }, 17000)
+
+             setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']:' + virusname + 'done it\'s going good 100.9%').setColor(0xFF0000)})
+
+             }, 18000)
+
+                setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: hacking yeah i love it').setColor(0xFF0000)})
+
+             }, 19000)
+
+               setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: uploading data' + virusname + ".key").setColor(0xFF0000)})
+
+             }, 22000)
+
+               setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Uploaded! Initiating explosion in 5...').setColor(0xFF0000)})
+
+             }, 25000)
+
+               setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Uploaded! Initiating explosion in 4...').setColor(0xFF0000)})
+
+             }, 26000)
+
+                setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Uploaded! Initiating explosion in 3...').setColor(0xFF0000)})
+
+             }, 27000)
+
+                setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Uploaded! Initiating explosion in 2...').setColor(0xFF0000)})
+
+             }, 28000)
+
+                setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Uploaded! Initiating explosion in 1...').setColor(0xFF0000)})
+
+             }, 29000)
+
+             setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 99%').setColor(0xFF0000)})
+
+           }, 30000)
+
+              setTimeout(function() {
+
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]100% virus added').setColor(0xFF0000)})
+
+           }, 31000)
+
+              setTimeout(function() {
+
+               m.delete()
+
+           }, 32000)
+
+             setTimeout(function() {
+
+               message.channel.send('__**تم تهكيرك**__')
+
+           }, 33000)
+
+           });
+
+         }
+
+ 
+
+ })
+
+
+
+
+
+client.on('message', message => {
+
+   if(!message.channel.guild) return;
+
+if(message.content.startsWith(prefix + 'brc')) {
+
+if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+
+if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
+
+let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
+
+let BcList = new Discord.RichEmbed()
+
+.setThumbnail(message.author.avatarURL)
+
+.setAuthor(`محتوى الرساله ${args}`)
+
+.setDescription(`برودكاست بـ امبد 📝\nبرودكاست بدون امبد✏ \nلديك دقيقه للأختيار قبل الغاء البرودكاست`)
+
+if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(BcList).then(msg => {
+
+msg.react('📝')
+
+.then(() => msg.react('✏'))
+
+.then(() =>msg.react('📝'))
+
+ 
+
+let EmbedBcFilter = (reaction, user) => reaction.emoji.name === '📝' && user.id === message.author.id;
+
+let NormalBcFilter = (reaction, user) => reaction.emoji.name === '✏' && user.id === message.author.id;
+
+ 
+
+let EmbedBc = msg.createReactionCollector(EmbedBcFilter, { time: 60000 });
+
+let NormalBc = msg.createReactionCollector(NormalBcFilter, { time: 60000 });
+
+ 
+
+EmbedBc.on("collect", r => {
+
+message.channel.send(`:ballot_box_with_check: تم ارسال الرساله بنجاح`).then(m => m.delete(5000));
+
+message.guild.members.forEach(m => {
+
+var bc = new
+
+Discord.RichEmbed()
+
+.setColor('RANDOM')
+
+  .setTitle('`-Broadcast-`')
+
+.setAuthor(`Server : ${message.guild.name}`)
+
+.setFooter(`Sender : ${message.author.username}`)
+
+.setDescription(`Message : ${args}`)
+
+.setThumbnail(message.author.avatarURL)
+
+m.send({ embed: bc })
+
+msg.delete();
+
+})
+})
+
+NormalBc.on("collect", r => {
+
+  message.channel.send(`:ballot_box_with_check: تم ارسال الرساله بنجاح`).then(m => m.delete(5000));
+
+message.guild.members.forEach(m => {
+
+m.send(args);
+
+msg.delete();
+
+})
+
+})
+
+})
+
+}
+
+});
 
 
 
