@@ -4074,15 +4074,8 @@ msg.delete();
 });
     
 }
- 
- 
-  client.on('message', msg => {//msg
-    if (msg.content === 'الوان') {
-      msg.channel.send({file : "https://cdn.pg.sa/1c4R2LijPA.png"})
-    }
-  });
-
-client.on('message' , ReBeL => {
+  
+  client.on('message' , ReBeL => {
 var prefix = "!";
 if(ReBeL.author.bot) return;
 if(ReBeL.channel.type == 'dm') return;
