@@ -4073,31 +4073,7 @@ msg.delete();
 
 });
 
-function(id) {
-                add_to_queue(id);
-                fetchVideoInfo(id, function(err, videoInfo) {
-                    if (err) throw new Error(err);
-message.channel.send(`aded : **( ${videoInfo.title} )** on the list :musical_note:`)
-                    queueNames.push(videoInfo.title);
-                    now_playing.push(videoInfo.title);
- 
-                });
-            });
-        }
-        else {
- 
-            isPlaying = true;
-            getID(args, function(id) {
-                queue.push('placeholder');
-                playMusic(id, message);
-                fetchVideoInfo(id, function(err, videoInfo) {
-                    if (err) throw new Error(err);
-message.channel.send(`Now playing : **( ${videoInfo.title} )** :musical_note: `)
-                    // client.user.setGame(videoInfo.title,'https://www.twitch.tv/Abdulmohsen');
-                });
-            });
-        }
-    }
+
     else if (mess.startsWith(prefix + 'skip')) {
         if (!message.member.voiceChannel) return message.channel.send('You must be in my audio room :microphone2:');
         message.channel.send('**Done , :white_check_mark: **').then(() => {
