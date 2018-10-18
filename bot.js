@@ -4067,4 +4067,17 @@ mentionned.send(` :credit_card: | Transfer Receipt \`\`\`You have received ${arg
 
 });
 
+client.on('message', message => {
+    if(message.content == '!bans'){
+        message.guild.fetchBans().then(bans => {
+            bans.forEach(user => {
+               message.channel.send('\`#\` <@'+ user.id + '>');
+            });
+        });
+    }
+});
+
+
+
+
 client.login(process.env.BOT_TOKEN)
