@@ -4108,7 +4108,628 @@ client.on('message', message => {
   }
 });
 
+client.on('message', message => {
+   if (message.content.startsWith("!avatar")) {
+       var mentionned = message.mentions.users.first();
+   var x5bzm;
+     if(mentionned){
+         var x5bzm = mentionned;
+     } else {
+         var x5bzm = message.author;
+         
+     }
+       const embed = new Discord.RichEmbed()
+       .setColor("#000000").setColor('#36393e')
+       .setAuthor(`Showing ${message.author.username}'s Avatar`)
+       .setImage(`${x5bzm.avatarURL}`)
+     message.channel.sendEmbed(embed);
+   }
+});
 
+
+client.on('message', message => {
+                  if (!points[message.author.id]) points[message.author.id] = {
+                    points: 0,
+                    };
+                  if (message.content.startsWith(prefix + 'type')) {
+                    if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
+                  
+                  const type = require('./type.json');
+                  const item = type[Math.floor(Math.random() * type.length)];
+                  const filter = response => {
+                      return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+                  };
+                  message.channel.send('** لديك 15 ثانيه لكتابه هذه الكلمه بسرعة**').then(msg => {
+                  
+                        
+                  msg.channel.send(`${item.type}`).then(() => {
+                          message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
+                          .then((collected) => {
+                      message.channel.send(`${collected.first().author} ✅ **احسنت لقد تمكنت من كتابه هذه الكلمه بسرعه**`);
+                      console.log(`[Typing] ${collected.first().author} typed the word.`);
+                              let won = collected.first().author;
+                              points[won.id].points++;
+                            })
+                            .catch(collected => {
+                              message.channel.send(`:x: **لم يتمكن احد من كتابه هذه الكلمه في الوقت المناسب**`);
+                        console.log('[Typing] Error: No one type the word.');
+                            })
+                      })
+                    })
+                  }
+                  });
+
+
+client.on('message', message => {
+                if (!points[message.author.id]) points[message.author.id] = {
+                  points: 0,
+                  };
+                if (message.content.startsWith(prefix + 'rkb')) {
+                  if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
+                
+                const type = require('./RKB.json');
+                const item = type[Math.floor(Math.random() * type.length)];
+                const filter = response => {
+                    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+                };
+                message.channel.send('**لديك 20 ثانيه لتركيب الكلمه**').then(msg => {
+                
+                      
+                msg.channel.send(`${item.type}`).then(() => {
+                        message.channel.awaitMessages(filter, { maxMatches: 1, time: 20000, errors: ['time'] })
+                        .then((collected) => {
+                    message.channel.send(`${collected.first().author} ✅ **احسنت لقد تمكنت من تركيب الكلمه بسرعه**`);
+                    console.log(`[Typing] ${collected.first().author} typed the word.`);
+                            let won = collected.first().author;
+                            points[won.id].points++;
+                          })
+                          .catch(collected => {
+                            message.channel.send(`:x: **لم يتمكن احد من تركيب الكلمه في الوقت المناسب**`);
+                      console.log('[Typing] Error: No one type the word.');
+                          })
+                    })
+                  })
+                }
+                });
+
+client.on('message', message => {
+if (!points[message.author.id]) points[message.author.id] = {
+    points: 0,
+  };
+if (message.content.startsWith(prefix + 'quiz')) {
+    if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
+
+const type = require('./quiz.json');
+const item = type[Math.floor(Math.random() * type.length)];
+const filter = response => {
+    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+};
+message.channel.send('**👑لديك 30 ثانية لحل هذا الغز👑**').then(msg => {
+
+            
+msg.channel.send(`${item.type}`).then(() => {
+        message.channel.awaitMessages(filter, { maxMatches: 1, time: 30000, errors: ['time'] })
+        .then((collected) => {
+        message.channel.send(`${collected.first().author} ✅ **الجواب صحيح صح عليك**`);
+        console.log(`[Typing] ${collected.first().author} typed the word.`);
+            let points = {}
+            let userData = points[message.author.id];
+            let userdata = require('./points.json');
+            userData.points++;
+          })
+          .catch(collected => {
+            message.channel.send(`🕓😀أنتهى الوقت أعد العب مرة آخرى😀🕓`);
+          })
+        })
+    })
+}
+});
+
+client.on('message', message => {
+if (!points[message.author.id]) points[message.author.id] = {
+    points: 0,
+  };
+if (message.content.startsWith(prefix + 'math')) {
+    if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
+
+const type = require('./ryd.json');
+const item = type[Math.floor(Math.random() * type.length)];
+const filter = response => {
+    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+};
+message.channel.send('**👑لديك 30 ثانية يلا ركز يا بطل👑**').then(msg => {
+
+            
+msg.channel.send(`${item.type}`).then(() => {
+        message.channel.awaitMessages(filter, { maxMatches: 1, time: 30000, errors: ['time'] })
+        .then((collected) => {
+        message.channel.send(`${collected.first().author} ✅ **والله أنك ذكي وحش يا بطل**`);
+        console.log(`[Typing] ${collected.first().author} typed the word.`);
+            let points = {}
+            let userData = points[message.author.id];
+            let userdata = require('./points.json');
+            userData.points++;
+          })
+          .catch(collected => {
+            message.channel.send(`🕓😀أنتهى الوقت أعد العب مرة آخرى😀🕓`);
+          })
+        })
+    })
+}
+});
+
+client.on('message', message => {
+if (!points[message.author.id]) points[message.author.id] = {
+    points: 0,
+  };
+if (message.content.startsWith(prefix + 'capitals')) {
+    if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
+
+const type = require('./3awasem.json');
+const item = type[Math.floor(Math.random() * type.length)];
+const filter = response => {
+    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+};
+message.channel.send('**👑لديك 15 ثانية للإجابة على السؤال!👑**').then(msg => {
+
+            
+msg.channel.send(`${item.type}`).then(() => {
+        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
+        .then((collected) => {
+        message.channel.send(`${collected.first().author} ✅ **الإجابة صحيحة بطل**`);
+        console.log(`[Typing] ${collected.first().author} typed the word.`);
+            let points = {}
+            let userData = points[message.author.id];
+            let userdata = require('./points.json');
+            userData.points++;
+          })
+          .catch(collected => {
+            message.channel.send(`🕓😀أنتهى الوقت أعد العب مرة آخرى😀🕓`);
+          })
+        })
+    })
+}
+});
+
+client.on('message', message => {
+    var prefix ="$$"
+    if(message.content.startsWith('!gif')) {
+console.log('[Gif Search] Developed By Ghost')
+        if(message.channel.type === 'dm') return message.channel.send('Only For Servers')
+        let args = message.content.split(' ').slice(1).join(' ')
+            if (!args) return message.reply('يجب كتابة أسم الصورة')
+    gif.query(args).then(gifUrl => {
+        message.channel.send({
+            files: [{
+                attachment: gifUrl,
+                name: "search.gif"
+            }]
+        });
+    });
+}
+});
+
+let points = JSON.parse(fs.readFileSync('./points.json', 'utf8')); // يقوم بقراءه ملف النقاط , والمسار حق النقاطس العام لجميع الأوامر
+client.on('message', message => {
+if (!points[message.author.id]) points[message.author.id] = {
+    points: 0,
+  };
+if (message.content.startsWith(prefix + 'fkk')) {
+    if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
+
+const type = require('./fkk.json');
+const item = type[Math.floor(Math.random() * type.length)];
+const filter = response => {
+    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+};
+message.channel.send('**لديك 15 ثانيه لتفكيك الكلمه**').then(msg => {
+let embed = new Discord.RichEmbed()
+.setColor("04791c")
+ .setImage(`${item.type}`)
+msg.channel.send(embed).then(() => {
+        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
+        .then((collected) => {
+         const sh = new Discord.RichEmbed()
+.setColor("04791c")
+.setDescription('**Good Job +1 Point**')
+.addField('Type !mypoints', 'To Show Your Points' , true)
+.setFooter(message.author.username, message.author.avatarURL)
+message.channel.sendEmbed(sh);
+        let won = collected.first().author;
+                points[won.id].points++;
+        })
+           .catch(collected => { // في حال لم يقم أحد بالإجابة
+            message.channel.send(`**Time Is End**`);
+           })
+          fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+    if (err) console.error(err)
+          })
+        })
+    })
+}
+})
+client.on('message', message => {
+if (message.content.startsWith(prefix + 'mypoints')) {
+	if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
+	let userData = points[message.author.id];
+	let embed = new Discord.RichEmbed()
+    .setAuthor(`${message.author.tag}`, message.author.avatarURL)
+	.setColor('#000000')
+	.setDescription(`نقاطك: \`${userData.points}\``)
+	message.channel.sendEmbed(embed)
+  }
+  fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+    if (err) console.error(err)
+  })
+});
+
+
+client.on('message' , async (message) => {
+       if(message.content.startsWith(prefix + "rps")) {
+              let args = message.content.split(" ").slice(1);
+  var choice = args[0];
+  if (choice == "ورقة" || choice == "p") {
+    var numb = Math.floor(Math.random() * 100);
+    if (numb <= 50) {
+      var choice2 = "ورقة";
+    } else if (numb > 50) {
+      var choice2 = "حجر";
+    } else {
+      var choice2 = "مقص";
+    }
+    if (choice2 == "مقص") {
+      var response = " لقد اخترت **مقص** و :v: ولقد فزت"
+    } else if (choice2 == "ورقة") {
+      var response = " لقد اخترت **ورقه** :hand_splayed: انه تعادل "
+    } else {
+      var response = " لقد اخترت **حجر** :punch:  انت الفائز"    
+    }
+    message.channel.send(response);
+  } else if (choice == "حجر" || choice == "r") {
+    var numb = Math.floor(Math.random() * 100);
+    if (numb <= 50) {
+      var choice2 = "ورقة";
+    } else if (numb > 50) {
+      var choice2 = "حجر";
+    } else {
+      var choice2 = "مقص";
+    }
+    if (choice2 == "ورقة") {
+      var response = " لقد اخترت **ورقه** :hand_splayed: ولقد فزت"
+    } else if (choice2 == "حجر") {
+      var response = "لقد اخترت **حجر** :punch: انه تعادل "
+    } else {
+      var response = " لقد اخترت **مقص** :v: انت الفائز"
+    }
+    message.channel.send(response);
+  } else if (choice == "مقص" || choice == "s") {
+    var numb = Math.floor(Math.random() * 100);
+    if (numb <= 50) {
+      var choice2 = "ورقة";
+    } else if (numb > 50) {
+      var choice2 = "حجر";
+    } else {
+      var choice2 = "مقص";
+    }
+    if (choice2 == "حجر") {
+      var response = "لقد اخترت **ورقه** :hand_splayed: لقد فزت"
+    } else if (choice2 == "مقص") {
+      var response = "لقد اخترت **مقص** :v: انه تعادل"
+    } else {
+      var response = " لقد اخترت **حجر** :punch: انت الفائز "
+    }
+    message.channel.send(response);
+  } else {
+    message.channel.send(`يجب عليك استعمال \`${prefix}rps\` <حجر|ورقة|مقص>`);
+  }
+}
+
+});
+
+client.on('message', message => {
+    
+if(message.content.split(' ')[0] == '!profile') {
+if(!message.channel.guild) return;
+
+let args = message.content.split(' ').slice(1).join(' ');
+
+       let defineduser = '';
+       if (!args[1]) { 
+           defineduser = message.author;
+       } else { // Run this if they did define someone...
+           let firstMentioned = message.mentions.users.first();
+           defineduser = firstMentioned;
+       }
+
+       const w = ['./id5.png','./id6.png'];
+       var Canvas = require('canvas')
+var jimp = require('jimp')
+
+        const millis = new Date().getTime() - defineduser.createdAt.getTime();
+const now = new Date();
+dateFormat(now, 'dddd, mmmm dS, yyyy');
+const stats2 = ['online', 'Low', 'Medium', 'Insane'];
+const days = millis / 1000 / 60 / 60 / 24;
+         dateFormat(now, 'dddd, mmmm dS, yyyy');
+             let time = `${dateFormat(defineduser.createdAt)}`
+             var heg;
+             if(men) {
+                 heg = men
+             } else {
+                 heg = message.author
+             }
+            var mentionned = message.mentions.members.first();
+              var h;
+             if(mentionned) {
+                 h = mentionned
+             } else {
+                 h = message.member
+             }
+       let Image = Canvas.Image,
+           canvas = new Canvas(300, 300),
+           ctx = canvas.getContext('2d');
+       ctx.patternQuality = 'bilinear';
+       ctx.filter = 'bilinear';
+       ctx.antialias = 'subpixel';
+ 
+       fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
+           if (err) return console.log(err);
+           let BG = Canvas.Image;
+           let ground = new Image;
+           ground.src = Background;
+           ctx.drawImage(ground, 0, 0, 300, 300);
+
+})
+  var mentionned = message.mentions.users.first();
+
+   var client;
+     if(mentionned){
+         var client = mentionned;
+     } else {
+         var client = message.author;
+         
+     }
+
+var men = message.mentions.users.first();
+           var heg;
+           if(men) {
+               heg = men
+           } else {
+               heg = message.author
+           }
+               let url = defineduser.displayAvatarURL.endsWith(".webp") ? defineduser.displayAvatarURL.slice(20, 20) + ".png" : defineduser.displayAvatarURL;
+               jimp.read(url, (err, ava) => {
+                   if (err) return console.log(err);
+                   ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
+                       if (err) return console.log(err);
+
+                       let Avatar = Canvas.Image;
+                       let ava = new Avatar;
+                       ava.src = buf;
+                       ctx.drawImage(ava, 112 , 40, 75, 75);
+                       
+                       
+                       
+                       
+                       var status;
+   if (defineduser.presence.status === 'online') {
+       status = 'ONLINE';
+ctx.fillStyle = `#2ce032`;
+ctx.beginPath();
+ctx.arc(179, 107, 10, 0, Math.PI*2, true); 
+ctx.closePath();
+ctx.fill();
+ 
+   } else if (defineduser.presence.status === 'dnd') {
+       status = 'DND';
+       ctx.fillStyle = `#ff0000`;
+ctx.beginPath();
+ctx.arc(179, 107, 8, 0, Math.PI*2, true); 
+ctx.closePath();
+ctx.fill();
+   } else if (defineduser.presence.status === 'idle') {
+       status = 'IDLE';
+       ctx.fillStyle = `#f4d32e`;
+ctx.beginPath();
+ctx.arc(179, 107, 10, 0, Math.PI*2, true); 
+ctx.closePath();
+ctx.fill();
+   } else if (defineduser.presence.status === 'offline') {
+       status = 'INVISIABLE';
+       ctx.fillStyle = `#898988`;
+ctx.beginPath();
+ctx.arc(179, 107, 10, 0, Math.PI*2, true); 
+ctx.closePath();
+ctx.fill();
+   }
+                       
+                       
+                                             var time2;
+     if(mentionned){
+         var time2 = `${dateFormat(message.mentions.users.first.joinedAt)}`;
+     } else {
+         var time2 = `${dateFormat(message.member.joinedAt)}`;
+         
+     }  
+                          
+   
+                       ctx.font = 'Bold 15px Arial ';
+                       ctx.fontSize = '15px';
+                       ctx.fillStyle = "#ffffff";
+                       ctx.textAlign = "center";
+                       ctx.fillText(status, 70 , 108 );
+                       
+                        ctx.font = 'Bold 13px Arial';
+                       ctx.fontSize = '13px';
+                       ctx.fillStyle = "#ffffff";
+                       ctx.textAlign = "center";
+                       ctx.fillText(`${message.author.presence.game === null ? "No Status" : message.author.presence.game.name}`, 150.00   , 180  );
+
+                      
+                       ctx.font = 'Bold 20px Arial ';
+                       ctx.fontSize = '15px';
+                       ctx.fillStyle = "#ffffff";
+                       ctx.textAlign = "center";
+                       ctx.fillText(`${defineduser.username}`, 150.50 , 140);
+
+
+                       ctx.font = 'Bold 15px Arial';
+                       ctx.fontSize = '15px';
+                       ctx.fillStyle = "#ffffff";
+                       ctx.textAlign = "center";
+                       ctx.fillText(`#${defineduser.discriminator}`, 227  , 108);
+
+                       var time2;
+     if(mentionned){
+         var time2 = `${dateFormat(message.mentions.users.first.joinedAt)}`;
+     } else {
+         var time2 = `${dateFormat(message.member.joinedAt)}`;
+         
+     }
+
+                       ctx.font = 'Bold 13px Arial ';
+                       ctx.fontSize = '13px';
+                       ctx.fillStyle = "#ffffff";
+                       ctx.textAlign = "center";
+                       ctx.fillText(`${moment(defineduser.createdTimestamp).fromNow()}`, 179 , 226 );
+                       
+                       
+    
+          
+                       ctx.font = 'Bold 13px Arial ';
+                       ctx.fontSize = '13px';
+                       ctx.fillStyle = "#ffffff";
+                       ctx.textAlign = "center";
+                       ctx.fillText(`${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')}`, 179 , 253);
+                       
+message.channel.sendFile(canvas.toBuffer())
+
+
+       })
+   })
+
+
+
+
+}
+
+})
+
+client.on('message', async message => {
+      //!fortnite Ninja solo pc
+  let Client = require('fortnite');
+  let fortnite = new Client('2bb97881-c068-4cba-b3b5-152abfc71c83');
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+    if(message.content.startsWith("!fortnite")) {
+        let username = args[0];
+        let platform = args[2] || 'pc';
+        let gamemode = args[1];
+        if(gamemode != 'solo' && gamemode != 'duo' && gamemode != 'squad' && gamemode != 'lifetime') return message.reply(`⚠️ **|  ${prefix}fortnite username solo/duo/squad/lifetime pc**`);
+        
+    if(!username) return message.reply('**Specify a username!**');
+    
+    let data = fortnite.user(username, platform).then(data => {
+        let stats = data.stats;
+        
+        if(gamemode === 'solo') {
+            let solostats = stats.solo;
+            let score = solostats.score;
+            let kd = solostats.kd;
+            let matches = solostats.matches;
+            let kills = solostats.kills;
+            let wins = solostats.wins;
+            let top3 = solostats.top_3;
+
+            let ByEmbed = new Discord.RichEmbed()
+            .setAuthor('Forntite Tracker Solo Stats')
+            .setTitle(data.username+"'s Stats")
+            .setColor("RANDOM")
+            .setThumbnail("https://www.teepublic.com/t-shirt/2412274-fortnite-logo-game-t-shirts")
+            .addField('# | Wins:',wins,true)
+            .addField('# | Kills:',kills,true)
+            .addField('# | Score:',score,true)
+            .addField("# | Matches:",matches,true)
+            .addField("# | Kill/Death Ratio:",kd,true)
+            .addField("# | Top 3:",top3,true)
+            
+            return message.channel.send(ByEmbed);
+            
+        }else if (gamemode === 'duo') {
+            let Duostats = stats.duo;
+            let score = Duostats.score;
+            let kd = Duostats.kd;
+            let matches = Duostats.matches;
+            let kills = Duostats.kills;
+            let wins = Duostats.wins;
+            let top3 = Duostats.top_3;
+
+            let ByEmbed = new Discord.RichEmbed()
+            .setAuthor('Forntite Tracker Duo Stats')
+            .setTitle(data.username+"'s Stats")
+            .setColor("RANDOM")
+            .setThumbnail("https://www.teepublic.com/t-shirt/2412274-fortnite-logo-game-t-shirts")
+            .addField('# | Wins:',wins,true)
+            .addField('# | Kills:',kills,true)
+            .addField('# | Score:',score,true)
+            .addField("# | Matches:",matches,true)
+            .addField("# | Kill/Death Ratio:",kd,true)
+            .addField("# | Top 3:",top3,true)
+            
+        message.channel.send(ByEmbed);
+
+        }else if(gamemode === 'squad') {
+            let squadstats = stats.squad;
+            let score = squadstats.score;
+            let kd = squadstats.kd;
+            let matches = squadstats.matches;
+            let kills = squadstats.kills;
+            let wins = squadstats.wins;
+            let top3 = squadstats.top_3;
+            
+            let ByEmbed = new Discord.RichEmbed()
+            .setAuthor('Forntite Tracker Squad Stats')
+            .setTitle(data.username+"'s Stats")
+            .setColor("RANDOM")
+            .setThumbnail("https://www.teepublic.com/t-shirt/2412274-fortnite-logo-game-t-shirts")
+            .addField('# | Wins:',wins,true)
+            .addField('# | Kills:',kills,true)
+            .addField('# | Score:',score,true)
+            .addField("# | Matches:",matches,true)
+            .addField("# | Kill/Death Ratio:",kd,true)
+            .addField("# | Top 3:",top3,true)
+            
+            return message.channel.send(ByEmbed);
+            
+        }else {
+            
+        
+        let lifetime = stats.lifetime;
+        let score = lifetime[6]['Score'];
+        let mplayed = lifetime[7]['Matches Played'];
+        let wins = lifetime[8]['Wins'];
+        let winper = lifetime[9]['Win%'];
+        let kills = lifetime[10]['Kills'];
+        let kd = lifetime[11]['K/d'];
+        
+                    let ByEmbed = new Discord.RichEmbed()
+            .setAuthor('Forntite Tracker Duo Stats')
+            .setTitle(data.username+"'s Stats")
+            .setColor("RANDOM")
+            .setThumbnail("https://www.teepublic.com/t-shirt/2412274-fortnite-logo-game-t-shirts")
+            .addField('# | Wins:',wins,true)
+            .addField('# | Kills:',kills,true)
+            .addField('# | Score:',score,true)
+            .addField("# | Matches:",mplayed,true)
+            .addField("# | Kill/Death Ratio:",kd,true)
+            .addField("# | Win Percentage:",winper,true)
+            
+        message.channel.send(ByEmbed);
+    }
+    })
+    }
+});
 
 
 client.login(process.env.BOT_TOKEN)
