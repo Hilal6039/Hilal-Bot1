@@ -4116,5 +4116,37 @@ if (FARES.content.startsWith(prefix + `8ball`)) {
    FARES.channel.send(`\:8ball\: | ${FARES[randomFARES]} **${authorFARES}**`);
 }}});
 
+client.on('message', message => {
+    if(!message.channel.guild) return;
+    if (message.author.bot) return;
+
+    if(!message.member.hasPermission('ADMINISTRATOR')) return;
+  
+  if (message.content.startsWith('$send-dm')) {
+
+    var mentionned = message.mentions.users.first();
+    let args = message.content.split(" ").slice(1);
+
+    var codes;
+    if(mentionned){
+        var codes = mentionned;
+      
+    } else {
+      return message.channel.send("**فشل**");
+        
+    }
+
+
+  let say = new Discord.RichEmbed()
+  .setDescription(args.join("  "))
+  .setFooter('Sent by : ' + `${message.author.tag}`)
+  .setColor('#009efc')
+  client.users.get(mentionned.id).sendEmbed(say);
+  
+  }
+});
+
+
+
 
 client.login(process.env.BOT_TOKEN)
